@@ -40,6 +40,12 @@ public class ResponseMsgUtil {
 		return builderResponse(ResponseStatusCodeEnum.RESULT_CODE_FAILURE.getCode(), msg, null);
 	}
 
+	/**
+	 * 请求成功
+	 */
+	public static <T> Result<T> success() {
+		return success(ResponseStatusCodeEnum.RESULT_CODE_SUCCESS.getMsg(), null);
+	}
 
 	/**
 	 * 请求成功
