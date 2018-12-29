@@ -68,5 +68,10 @@ public final class ResponseStatusConstant {
 	 */
 	public static final int REQUEST_SERVICE_EXCEPTION = 20002;
 
+	/**
+	 * 断言错误
+	 */
+	public static final int REQUEST_ASSERTION_ERR = 20003;
+
 
 }
