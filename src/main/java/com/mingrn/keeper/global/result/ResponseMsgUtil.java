@@ -173,6 +173,14 @@ public class ResponseMsgUtil {
         return builderResponse(ResponseStatusCodeEnum.RESULT_CODE_SERVICE_EXCEPTION.getCode(), ResponseStatusCodeEnum.RESULT_CODE_SERVICE_EXCEPTION.getMsg(), null);
     }
 
+
+    /**
+     * 断言错误
+     */
+    public static Result assertionError() {
+        return assertionError(ResponseStatusCodeEnum.RESULT_CODE_ASSERTION_ERR.getMsg());
+    }
+
     /**
      * 断言错误
      */
