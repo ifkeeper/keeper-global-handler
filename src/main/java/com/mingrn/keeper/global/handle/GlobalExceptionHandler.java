@@ -5,7 +5,7 @@ import com.mingrn.keeper.global.exception.NotLoginException;
 import com.mingrn.keeper.global.exception.ParamIsNotNullException;
 import com.mingrn.keeper.global.result.ResponseMsgUtil;
 import com.mingrn.keeper.global.result.Result;
-import com.mingrn.keeper.utils.web.RequestUtils;
+import com.mingrn.keeper.commons.utils.web.RequestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
