@@ -17,7 +17,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.mingrn.keeper</groupId>
-			<artifactId>keeper-utils</artifactId>
+			<artifactId>keeper-commons-utils</artifactId>
 			<version>${parent.version}</version>
 		</dependency>
 	</dependencies>
