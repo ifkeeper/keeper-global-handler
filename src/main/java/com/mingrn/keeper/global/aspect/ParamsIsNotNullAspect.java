@@ -25,10 +25,25 @@ import java.lang.reflect.Parameter;
  * 在前置通知中获取方法参数 <code>String[] params = parameter.getName();</code> 时
  * 若发现每个参数都为 arg[\d]时而无法获取正确的参数名,原因是参数名称被编译进了class文件,
  * 替代了早期版本里无意义的arg0、arg1...
- * 保留参数名这一选项由编译开关 `javac -parameters` 默认是关闭的。
- * Idea 需要在 preferences>Compiler>Java Compiler> java Options 中
- * Additional command line parameters: 选项中增加
- * `java -parameters` 或 `-parameters`。
+ * 保留参数名这一选项由编译开关 `javac -parameters` 默认是关闭的。有以下两种方式开启:
+ * 1st:
+ * Idea等编译器 需要在 preferences>Compiler>Java Compiler> java Options 中
+ * Additional command line parameters: 选项中增加 `-parameters`。
+ * 2nd(推荐):
+ * 在Maven中使用插件 `maven-compiler-plugin`,示例如下:
+ * <code>
+ *     <plugin>
+ *         <groupId>org.apache.maven.plugins</groupId>
+ *         <artifactId>maven-compiler-plugin</artifactId>
+ *         <version>${mvn.plugins.maven-compiler.version}</version>
+ *         <configuration>
+ *             <compilerArgs>
+ *                 <arg>-parameters</arg> //增加 -parameters 选项
+ *                 <arg>other...</arg>
+ *             </<compilerArgs>
+ *         </<configuration>
+ *     </plugin>
+ * </code>
  *
  * @author MinGRn <br > MinGRn97@gmail.com
  */
@@ -75,6 +90,7 @@ public class ParamsIsNotNullAspect {
 			// 获取方法参数类型
 			Class<?> clazz = parameter.getType();
 			String value = request.getParameter(paramsName);
+			LOGGER.info("Checked [{}] parameter [{}], and the value is: [{}]", clazz.toString(), paramsName, value);
 			if (StringUtils.isBlank(value)) {
 				throw new ParamIsNotNullException(clazz.toString(), paramsName);
 			}
