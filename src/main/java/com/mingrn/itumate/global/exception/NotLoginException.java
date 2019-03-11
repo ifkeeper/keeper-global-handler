@@ -1,4 +1,4 @@
-package com.mingrn.keeper.global.exception;
+package com.mingrn.itumate.global.exception;
 
 /**
  * 未登录异常

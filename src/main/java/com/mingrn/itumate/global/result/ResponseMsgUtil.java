@@ -1,6 +1,6 @@
-package com.mingrn.keeper.global.result;
+package com.mingrn.itumate.global.result;
 
-import com.mingrn.keeper.global.enums.ResponseStatusCodeEnum;
+import com.mingrn.itumate.global.enums.ResponseStatusCodeEnum;
 
 /**
  * 消息统一相应工具类

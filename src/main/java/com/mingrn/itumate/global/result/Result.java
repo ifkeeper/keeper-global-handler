@@ -1,4 +1,4 @@
-package com.mingrn.keeper.global.result;
+package com.mingrn.itumate.global.result;
 
 
 import com.alibaba.fastjson.JSON;

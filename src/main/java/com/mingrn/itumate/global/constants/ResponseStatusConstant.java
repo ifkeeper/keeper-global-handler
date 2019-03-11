@@ -1,4 +1,4 @@
-package com.mingrn.keeper.global.constants;
+package com.mingrn.itumate.global.constants;
 
 /**
  * 全局异常状态码常量

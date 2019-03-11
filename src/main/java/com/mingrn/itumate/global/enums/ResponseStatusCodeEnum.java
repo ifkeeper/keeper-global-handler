@@ -1,7 +1,7 @@
-package com.mingrn.keeper.global.enums;
+package com.mingrn.itumate.global.enums;
 
 
-import com.mingrn.keeper.global.constants.ResponseStatusConstant;
+import com.mingrn.itumate.global.constants.ResponseStatusConstant;
 
 /**
  * 请全局异常状态码枚举

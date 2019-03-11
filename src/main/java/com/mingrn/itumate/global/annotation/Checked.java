@@ -1,4 +1,4 @@
-package com.mingrn.keeper.global.annotation;
+package com.mingrn.itumate.global.annotation;
 
 import java.lang.annotation.*;
 

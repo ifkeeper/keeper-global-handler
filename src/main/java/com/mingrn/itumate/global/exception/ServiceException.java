@@ -1,4 +1,4 @@
-package com.mingrn.keeper.global.exception;
+package com.mingrn.itumate.global.exception;
 
 /**
  * 业务异常

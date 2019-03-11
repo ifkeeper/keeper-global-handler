@@ -1,4 +1,4 @@
-package com.mingrn.keeper.global.handle;
+package com.mingrn.itumate.global.handle;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

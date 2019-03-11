@@ -1,9 +1,9 @@
-package com.mingrn.keeper.global.aspect;
+package com.mingrn.itumate.global.aspect;
 
-import com.mingrn.keeper.global.constants.ResponseStatusConstant;
-import com.mingrn.keeper.global.result.ResponseMsgUtil;
-import com.mingrn.keeper.global.result.Result;
-import com.mingrn.keeper.commons.utils.object.ObjectUtils;
+import com.mingrn.itumate.global.constants.ResponseStatusConstant;
+import com.mingrn.itumate.global.result.ResponseMsgUtil;
+import com.mingrn.itumate.global.result.Result;
+import com.mingrn.itumate.commons.utils.object.ObjectUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -25,7 +25,7 @@ public class ResultCheckedAspect {
 	/**
 	 * 切点
 	 */
-	@Pointcut("@annotation(com.mingrn.keeper.global.annotation.Checked)")
+	@Pointcut("@annotation(com.mingrn.itumate.global.annotation.Checked)")
 	public void resultCheckedAspect() {
 	}
 

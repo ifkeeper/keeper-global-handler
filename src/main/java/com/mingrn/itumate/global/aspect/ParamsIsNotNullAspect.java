@@ -1,7 +1,7 @@
-package com.mingrn.keeper.global.aspect;
+package com.mingrn.itumate.global.aspect;
 
-import com.mingrn.keeper.global.annotation.ParamsIsNotNull;
-import com.mingrn.keeper.global.exception.ParamIsNotNullException;
+import com.mingrn.itumate.global.annotation.ParamsIsNotNull;
+import com.mingrn.itumate.global.exception.ParamIsNotNullException;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -57,7 +57,7 @@ public class ParamsIsNotNullAspect {
 	/**
 	 * 切点
 	 */
-	@Pointcut("@annotation(com.mingrn.keeper.global.annotation.Checked)")
+	@Pointcut("@annotation(com.mingrn.itumate.global.annotation.Checked)")
 	public void paramsIsNotNullAspect() {
 	}
 
