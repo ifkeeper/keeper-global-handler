@@ -1,0 +1,52 @@
+{
+  "properties": [
+    {
+      "name": "restful.api.title",
+      "type": "java.lang.String",
+      "description": "the restful service api title name",
+      "defaultValue": "Itumate Restful Service API"
+    },
+    {
+      "name": "restful.api.version",
+      "type": "java.lang.String",
+      "description": "the Itumate service version, e.g: 0.0.1-SNAPSHOT",
+      "defaultValue": ""
+    },
+    {
+      "name": "restful.api.web.base.package",
+      "type": "java.lang.String",
+      "description": "the Itumate service base package",
+      "defaultValue": "com.mingrn.itumate.*.web"
+    },
+    {
+      "name": "restful.api.contact.url",
+      "type": "java.lang.String",
+      "description": "the Itumate service contact url",
+      "defaultValue": ""
+    },
+    {
+      "name": "restful.api.description",
+      "type": "java.lang.String",
+      "description": "the Itumate restful api description",
+      "defaultValue": ""
+    },
+    {
+      "name": "restful.api.contact.name",
+      "type": "java.lang.String",
+      "description": "the service Administrator",
+      "defaultValue": ""
+    },
+    {
+      "name": "restful.api.contact.email",
+      "type": "java.lang.String",
+      "description": "the service Administrator email",
+      "defaultValue": ""
+    },
+    {
+      "name": "restful.api.termsOfServiceUrl",
+      "type": "java.lang.String",
+      "description": "the Itumate team server url",
+      "defaultValue": ""
+    }
+  ]
+}
