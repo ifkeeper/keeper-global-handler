@@ -187,4 +187,32 @@ public class ResponseMsgUtil {
     public static Result assertionError(String msg) {
         return builderResponse(ResponseStatusCodeEnum.RESULT_CODE_ASSERTION_ERR.getCode(), msg, null);
     }
+
+    /**
+     * Hystrix 读取超时
+     */
+    public static Result hystrixReadTimeOutError() {
+        return hystrixReadTimeOutError(ResponseStatusCodeEnum.RESULT_CODE_CLIENT_HYSTRIX_ERR.getMsg());
+    }
+
+    /**
+     * Hystrix 读取超时
+     */
+    public static Result hystrixReadTimeOutError(String msg) {
+        return builderResponse(ResponseStatusCodeEnum.RESULT_CODE_CLIENT_HYSTRIX_ERR.getCode(), msg, null);
+    }
+
+    /**
+     * feign 服务调用异常
+     */
+    public static Result feignClientReadError() {
+        return feignClientReadError(ResponseStatusCodeEnum.RESULT_CODE_CLIENT_FEIGN_ERR.getMsg());
+    }
+
+    /**
+     * feign 服务调用异常
+     */
+    public static Result feignClientReadError(String msg) {
+        return builderResponse(ResponseStatusCodeEnum.RESULT_CODE_CLIENT_FEIGN_ERR.getCode(), msg, null);
+    }
 }

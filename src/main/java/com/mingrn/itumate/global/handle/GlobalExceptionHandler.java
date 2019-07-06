@@ -6,6 +6,8 @@ import com.mingrn.itumate.global.exception.ParamIsNotNullException;
 import com.mingrn.itumate.global.result.ResponseMsgUtil;
 import com.mingrn.itumate.global.result.Result;
 import com.mingrn.itumate.commons.utils.web.RequestUtils;
+import com.netflix.client.ClientException;
+import feign.FeignException;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -162,6 +164,32 @@ public class GlobalExceptionHandler extends AbstractErrorController {
 	public Result noOperateAuthorityException(HttpServletRequest request, Exception e) {
 		LOGGER.error("!!! request uri:{} from {} server exception", request.getRequestURI(), RequestUtils.getClientIpAddress(request), e);
 		return ResponseMsgUtil.noAuthorized(e.getMessage());
+	}
+
+	/**
+	 * Hystrix 熔断器异常
+	 * <p>
+	 * 触发该异常原因是服务调用超时触发服务降级机制
+	 *
+	 * @see ResponseMsgUtil#hystrixReadTimeOutError(String)
+	 */
+	@ExceptionHandler(ClientException.class)
+	public Result hystrixFuseException(HttpServletRequest request, Exception e) {
+		LOGGER.error("!!! request uri:{} from {} server exception", request.getRequestURI(), RequestUtils.getClientIpAddress(request), e);
+		return ResponseMsgUtil.hystrixReadTimeOutError(e.getMessage());
+	}
+
+	/**
+	 * Feign 服务调用异常
+	 * <p>
+	 * 触发该异常原因是无可用服务或者服务读取超时
+	 *
+	 * @see ResponseMsgUtil#feignClientReadError(String)
+	 */
+	@ExceptionHandler(FeignException.class)
+	public Result feignClientException(HttpServletRequest request, Exception e) {
+		LOGGER.error("!!! request uri:{} from {} server exception", request.getRequestURI(), RequestUtils.getClientIpAddress(request), e);
+		return ResponseMsgUtil.feignClientReadError(e.getMessage());
 	}
 
 
