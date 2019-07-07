@@ -73,5 +73,15 @@ public final class ResponseStatusConstant {
 	 */
 	public static final int REQUEST_ASSERTION_ERR = 20003;
 
+	/**
+	 * 客户端(服务之间调用) Hystrix 读取超时
+	 */
+	public static final int REQUEST_CLIENT_HYSTRIX__ERR = 30000;
+
+	/**
+	 * 客户端(服务之间调用) FEIGN 服务调用异常
+	 */
+	public static final int REQUEST_CLIENT_FEIGN_ERR = 30001;
+
 
 }

@@ -74,7 +74,17 @@ public enum ResponseStatusCodeEnum {
     /**
      * 断言错误状态码
      */
-    RESULT_CODE_ASSERTION_ERR(ResponseStatusConstant.REQUEST_ASSERTION_ERR, "assertion error");
+    RESULT_CODE_ASSERTION_ERR(ResponseStatusConstant.REQUEST_ASSERTION_ERR, "assertion error"),
+
+    /**
+     * 客户端(服务之间调用) Hystrix 读取超时
+     */
+    RESULT_CODE_CLIENT_HYSTRIX_ERR(ResponseStatusConstant.REQUEST_CLIENT_HYSTRIX__ERR, "Hystrix 读取超时触发服务降级"),
+
+    /**
+     * 客户端(服务之间调用) feign 服务调用异常
+     */
+    RESULT_CODE_CLIENT_FEIGN_ERR(ResponseStatusConstant.REQUEST_CLIENT_FEIGN_ERR, "Feign 客户端调用异常");
 
 
     /**
