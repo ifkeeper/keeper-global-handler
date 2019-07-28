@@ -3,6 +3,8 @@ package com.mingrn.itumate.global.annotation;
 import javax.servlet.http.HttpServletRequest;
 import java.lang.annotation.*;
 
+import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
+
 /**
  * 参数不能为 NULL 或 '' 注解。
  * 该注解与 {@link Checked} 注解同时使用。<code>@Checked</code> 作用于方法,
@@ -24,7 +26,7 @@ import java.lang.annotation.*;
  * @date 07/11/2018 20:24
  */
 @Documented
-@Target(ElementType.PARAMETER)
+@Target({ElementType.PARAMETER, ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ParamsIsNotNull {
 	boolean notNull() default true;
