@@ -9,14 +9,11 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.filter.CharacterEncodingFilter;
-import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
-import java.nio.charset.Charset;
-import java.util.List;
+import java.nio.charset.StandardCharsets;
 
 /**
  * 全局 WebMvc 配置类
@@ -37,6 +34,8 @@ public class GlobalWebMvcConfig extends WebMvcConfigurationSupport {
 
 	/**
 	 * 使用 FastJson 替换 JackJson 解析 JSON 数据
+	 * 消息转换可参考:
+	 * <a href="https://www.jianshu.com/p/2f633cb817f5">springMVC的消息转换器（Message Converter）</a>
 	 */
 	@Bean
 	public HttpMessageConverters fastJsonHttpMessageConverters() {
@@ -58,7 +57,7 @@ public class GlobalWebMvcConfig extends WebMvcConfigurationSupport {
 		);
 
 		fastConverter.setFastJsonConfig(fastJsonConfig);
-		fastConverter.setDefaultCharset(Charset.forName("UTF-8"));
+		fastConverter.setDefaultCharset(StandardCharsets.UTF_8);
 
 		HttpMessageConverter<?> converter = fastConverter;
 		return new HttpMessageConverters(converter);
