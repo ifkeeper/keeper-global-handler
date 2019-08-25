@@ -17,7 +17,8 @@
     <properties>
         <!--itumate start-->
         <itumate.commons-utils.version>0.0.1-SNAPSHOT</itumate.commons-utils.version>
-        <!--itumate end-->
+        <!--Swagger2 Version-->
+        <swagger2.version>2.7.0</swagger2.version>
     </properties>
 
     <dependencies>
@@ -25,6 +26,18 @@
             <groupId>com.mingrn.itumate</groupId>
             <artifactId>itumate-commons-utils</artifactId>
             <version>${itumate.commons-utils.version}</version>
+        </dependency>
+
+        <!--swagger2-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger2.version}</version>
         </dependency>
     </dependencies>
 
@@ -36,5 +49,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
