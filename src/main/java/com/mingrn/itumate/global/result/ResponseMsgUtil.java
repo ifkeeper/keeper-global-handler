@@ -18,8 +18,8 @@ public class ResponseMsgUtil {
      */
     public static <T> Result<T> builderResponse(int code, String msg, T data) {
         Result<T> res = new Result<>();
-        res.setResCode(code);
-        res.setResMsg(msg);
+        res.setCode(code);
+        res.setMessage(msg);
         res.setData(data);
         return res;
     }
@@ -171,21 +171,6 @@ public class ResponseMsgUtil {
      */
     public static Result serviceException() {
         return builderResponse(ResponseStatusCodeEnum.RESULT_CODE_SERVICE_EXCEPTION.getCode(), ResponseStatusCodeEnum.RESULT_CODE_SERVICE_EXCEPTION.getMsg(), null);
-    }
-
-
-    /**
-     * 断言错误
-     */
-    public static Result assertionError() {
-        return assertionError(ResponseStatusCodeEnum.RESULT_CODE_ASSERTION_ERR.getMsg());
-    }
-
-    /**
-     * 断言错误
-     */
-    public static Result assertionError(String msg) {
-        return builderResponse(ResponseStatusCodeEnum.RESULT_CODE_ASSERTION_ERR.getCode(), msg, null);
     }
 
     /**

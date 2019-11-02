@@ -86,7 +86,6 @@ public class GlobalExceptionHandler extends AbstractErrorController {
 	 *
 	 * @see ResponseMsgUtil#requestNotFound()
 	 */
-	@ResponseStatus(code = HttpStatus.NOT_FOUND)
 	@ExceptionHandler(NoHandlerFoundException.class)
 	public Result noHandlerFoundException(HttpServletRequest request, Exception e) {
 		LOGGER.error("!!! request uri:{} from {} server exception:{}", request.getRequestURI(), RequestUtils.getClientIpAddress(request), e);
@@ -99,23 +98,10 @@ public class GlobalExceptionHandler extends AbstractErrorController {
 	 *
 	 * @see ResponseMsgUtil#internalServerErr()
 	 */
-	@ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler(Exception.class)
 	public Result serverError(HttpServletRequest request, Exception e) {
 		LOGGER.error("!!! request uri:{} from {} server exception:{}", request.getRequestURI(), RequestUtils.getClientIpAddress(request), e);
 		return ResponseMsgUtil.internalServerErr(e.getMessage());
-	}
-
-
-	/**
-	 * 断言错误处理
-	 *
-	 * @see ResponseMsgUtil#assertionError(String)
-	 */
-	@ExceptionHandler(AssertionError.class)
-	public Result assertionError(HttpServletRequest request, Exception e) {
-		LOGGER.error("!!! request uri:{} from {} assertion error", request.getRequestURI(), RequestUtils.getClientIpAddress(request), e);
-		return ResponseMsgUtil.assertionError(e.getMessage());
 	}
 
 

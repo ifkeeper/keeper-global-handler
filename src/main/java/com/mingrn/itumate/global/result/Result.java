@@ -11,58 +11,54 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
  */
 public class Result<T> {
 
-	/**
-	 * 响应码
-	 */
-	private Integer resCode;
+    /** 响应码 */
+    private Integer code;
 
-	/**
-	 * 响应信息
-	 */
-	private String resMsg;
+    /** 响应信息 */
+    private String message;
 
-	/**
-	 * 数据
-	 */
-	private T data;
+    /**
+     * 数据
+     */
+    private T data;
 
-	Result() {
-	}
+    Result() {
+    }
 
-	public Integer getResCode() {
-		return this.resCode;
-	}
+    public Integer getCode() {
+        return code;
+    }
 
-	public void setResCode(Integer resCode) {
-		this.resCode = resCode;
-	}
+    public void setCode(Integer code) {
+        this.code = code;
+    }
 
-	public String getResMsg() {
-		return this.resMsg;
-	}
+    public String getMessage() {
+        return message;
+    }
 
-	public void setResMsg(String resMsg) {
-		this.resMsg = resMsg;
-	}
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
-	public T getData() {
-		return this.data;
-	}
+    public T getData() {
+        return this.data;
+    }
 
-	public void setData(T data) {
-		this.data = data;
-	}
+    public void setData(T data) {
+        this.data = data;
+    }
 
-	public String toJson() {
-		return this.data == null ? JSON.toJSONString(this) : this.toJson(SerializerFeature.WriteNullListAsEmpty, SerializerFeature.WriteNullStringAsEmpty, SerializerFeature.WriteMapNullValue);
-	}
+    public String toJson() {
+        return this.data == null ? JSON.toJSONString(this) : this.toJson(SerializerFeature.WriteNullListAsEmpty, SerializerFeature.WriteNullStringAsEmpty, SerializerFeature.WriteMapNullValue);
+    }
 
-	public String toJson(SerializerFeature... features) {
-		return null == features ? this.toJson() : JSON.toJSONString(this, features);
-	}
+    public String toJson(SerializerFeature... features) {
+        return null == features ? this.toJson() : JSON.toJSONString(this, features);
+    }
 
-	@Override
-	public String toString() {
-		return "Result{resCode=" + this.resCode + ", resMsg=\'" + this.resMsg + '\'' + ", data=" + this.data + '}';
-	}
+    @Override
+    public String toString() {
+        return "Result{code=" + this.code + ", message=\'" + this.message + '\'' + ", data=" + this.data + '}';
+    }
 }
