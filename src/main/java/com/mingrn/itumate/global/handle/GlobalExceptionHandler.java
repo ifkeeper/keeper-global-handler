@@ -1,11 +1,11 @@
 package com.mingrn.itumate.global.handle;
 
-import com.mingrn.itumate.global.exception.NoOperateAuthorityException;
-import com.mingrn.itumate.global.exception.NotLoginException;
-import com.mingrn.itumate.global.exception.ParamIsNotNullException;
+import com.mingrn.itumate.commons.utils.web.RequestUtils;
+import com.mingrn.itumate.exception.NoOperateAuthorityException;
+import com.mingrn.itumate.exception.NotLoginException;
+import com.mingrn.itumate.exception.ParamIsNotNullException;
 import com.mingrn.itumate.global.result.ResponseMsgUtil;
 import com.mingrn.itumate.global.result.Result;
-import com.mingrn.itumate.commons.utils.web.RequestUtils;
 import com.netflix.client.ClientException;
 import feign.FeignException;
 import org.apache.commons.lang3.StringUtils;
@@ -15,7 +15,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.web.servlet.error.AbstractErrorController;
 import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
 import javax.servlet.http.HttpServletRequest;
