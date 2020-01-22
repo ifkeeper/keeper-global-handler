@@ -1,7 +1,7 @@
 package com.mingrn.itumate.global.aspect;
 
+import com.mingrn.itumate.exception.ParamIsNotNullException;
 import com.mingrn.itumate.global.annotation.ParamsIsNotNull;
-import com.mingrn.itumate.global.exception.ParamIsNotNullException;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
