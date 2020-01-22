@@ -15,9 +15,6 @@
     </parent>
 
     <properties>
-        <!--itumate start-->
-        <itumate.commons-utils.version>0.0.1-SNAPSHOT</itumate.commons-utils.version>
-        <!--Swagger2 Version-->
         <swagger2.version>2.7.0</swagger2.version>
     </properties>
 
@@ -25,7 +22,13 @@
         <dependency>
             <groupId>com.mingrn.itumate</groupId>
             <artifactId>itumate-commons-utils</artifactId>
-            <version>${itumate.commons-utils.version}</version>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mingrn.itumate</groupId>
+            <artifactId>itumate-exception</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <!--swagger2-->
