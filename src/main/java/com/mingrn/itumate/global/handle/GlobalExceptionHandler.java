@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.MissingServletRequestParameterException;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -91,8 +93,24 @@ public class GlobalExceptionHandler extends AbstractErrorController {
 	 */
 	@ExceptionHandler(NoHandlerFoundException.class)
 	public Result noHandlerFoundException(HttpServletRequest request, Exception e) {
-		LOGGER.error("!!! request uri:{} from {} server exception:{}", request.getRequestURI(), RequestUtils.getClientIpAddress(request), e);
+		printLog(request, e);
 		return ResponseMsgUtil.requestNotFound();
+	}
+
+	/**
+	 * 参数不存在异常
+	 *
+	 * 示例:
+	 * <pre>
+	 *     public void add(@RequestParam String username){}
+	 * </pre>
+	 *
+	 * 如果参数 <code>username</code> 不存在则抛出参数不存在异常: Required String parameter 'username' is not present
+	 */
+	@ExceptionHandler(MissingServletRequestParameterException.class)
+	public Result parameterNotPresent(HttpServletRequest request, MissingServletRequestParameterException e) {
+		printLog(request, e);
+		return ResponseMsgUtil.failure();
 	}
 
 
@@ -103,7 +121,7 @@ public class GlobalExceptionHandler extends AbstractErrorController {
 	 */
 	@ExceptionHandler(Exception.class)
 	public Result serverError(HttpServletRequest request, Exception e) {
-		LOGGER.error("!!! request uri:{} from {} server exception:{}", request.getRequestURI(), RequestUtils.getClientIpAddress(request), e);
+		printLog(request, e);
 		return ResponseMsgUtil.internalServerErr(e.getMessage());
 	}
 
@@ -115,7 +133,7 @@ public class GlobalExceptionHandler extends AbstractErrorController {
 	 */
 	@ExceptionHandler(NotLoginException.class)
 	public Result notLoginException(HttpServletRequest request, Exception e) {
-		LOGGER.error("!!! request uri:{} from {} server exception", request.getRequestURI(), RequestUtils.getClientIpAddress(request), e);
+		printLog(request, e);
 		return ResponseMsgUtil.notLogin(e.getMessage());
 	}
 
@@ -129,7 +147,7 @@ public class GlobalExceptionHandler extends AbstractErrorController {
 	 */
 	@ExceptionHandler(ParamIsNotNullException.class)
 	public Result paramIsNotNullException(HttpServletRequest request, Exception e) {
-		LOGGER.error("!!! request uri:{} from {} server exception", request.getRequestURI(), RequestUtils.getClientIpAddress(request), e);
+		printLog(request, e);
 		// 匹配中括号字符,作为参数类型与参数名
 		String parameterType = null, parameterName = null;
 		final Matcher matcher = PATTERN_BRACKET_CHARACTER_EXTRACTIONS.matcher(e.getMessage());
@@ -151,7 +169,7 @@ public class GlobalExceptionHandler extends AbstractErrorController {
 	 */
 	@ExceptionHandler(NoOperateAuthorityException.class)
 	public Result noOperateAuthorityException(HttpServletRequest request, Exception e) {
-		LOGGER.error("!!! request uri:{} from {} server exception", request.getRequestURI(), RequestUtils.getClientIpAddress(request), e);
+		printLog(request, e);
 		return ResponseMsgUtil.noAuthorized(e.getMessage());
 	}
 
@@ -164,7 +182,7 @@ public class GlobalExceptionHandler extends AbstractErrorController {
 	 */
 	@ExceptionHandler(ClientException.class)
 	public Result hystrixFuseException(HttpServletRequest request, Exception e) {
-		LOGGER.error("!!! request uri:{} from {} server exception", request.getRequestURI(), RequestUtils.getClientIpAddress(request), e);
+		printLog(request, e);
 		return ResponseMsgUtil.hystrixReadTimeOutError(e.getMessage());
 	}
 
@@ -177,7 +195,7 @@ public class GlobalExceptionHandler extends AbstractErrorController {
 	 */
 	@ExceptionHandler(FeignException.class)
 	public Result feignClientException(HttpServletRequest request, Exception e) {
-		LOGGER.error("!!! request uri:{} from {} server exception", request.getRequestURI(), RequestUtils.getClientIpAddress(request), e);
+		printLog(request, e);
 		return ResponseMsgUtil.feignClientReadError(e.getMessage());
 	}
 
@@ -202,5 +220,9 @@ public class GlobalExceptionHandler extends AbstractErrorController {
 	@Override
 	public String getErrorPath() {
 		return errorPath;
+	}
+
+	private static void printLog(HttpServletRequest request, Exception e) {
+		LOGGER.error("!!! request uri:{} from {} server exception", request.getRequestURI(), RequestUtils.getClientIpAddress(request), e);
 	}
 }
