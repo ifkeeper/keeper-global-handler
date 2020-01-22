@@ -34,7 +34,7 @@ public class ResultCheckedAspect {
 		// 获取返回值
 		Result result = (Result) joinPoint.proceed();
 		// 结果不为成功状态码直接返回
-		if (result.getResCode() != ResponseStatusConstant.REQUEST_SUCCESS) {
+		if (result.getCode() != ResponseStatusConstant.REQUEST_SUCCESS) {
 			return result;
 		}
 
