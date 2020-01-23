@@ -21,7 +21,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @date 11/11/2018 13:41
  */
 @Configuration
-@EnableSwagger2
 public class Swagger2 {
 
 	@Value("${restful.api.title}")
