@@ -1,6 +1,5 @@
 package com.mingrn.itumate.global.annotation;
 
-import javax.servlet.http.HttpServletRequest;
 import java.lang.annotation.*;
 import java.util.regex.Pattern;
 

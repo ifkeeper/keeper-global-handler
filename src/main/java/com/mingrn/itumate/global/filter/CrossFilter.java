@@ -26,7 +26,7 @@ public class CrossFilter implements Filter {
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) resp;
-//		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 //		response.setHeader("Content-type", "text/html;charset=UTF-8");
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		response.setHeader("Access-Control-Allow-Credentials", "true");

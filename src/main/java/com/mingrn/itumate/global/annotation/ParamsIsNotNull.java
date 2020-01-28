@@ -12,7 +12,7 @@ import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
  * <code>@ParamsIsNotNull</code> 注解作用于方法参数,用于表示该方法不能为 NULL 或 ''。
  * 当请求进入方法体之前会在 {@link com.mingrn.itumate.global.aspect.ParamsIsNotNullAspect}
  * 中进行校验。若被 <code>@ParamsIsNotNull</code> 注解标识的参数值为 NULL 或 '' 时,会抛出
- * {@link com.mingrn.itumate.global.exception.ParamIsNotNullException} 异常,并会
+ * {@link com.mingrn.itumate.exception.ParamIsNotNullException} 异常,并会
  * 在全局异常处理{@link com.mingrn.itumate.global.handle.GlobalExceptionHandler#paramIsNotNullException(HttpServletRequest, Exception)}中被拦截。
  * </p>
  * 该注解与 {@link org.springframework.web.bind.annotation.RequestParam} 注解唯一的区别在于
