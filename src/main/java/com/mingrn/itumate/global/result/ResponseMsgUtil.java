@@ -50,6 +50,13 @@ public class ResponseMsgUtil {
     /**
      * 请求成功
      */
+    public static <T> Result<T> success(String msg) {
+        return success(msg, null);
+    }
+
+    /**
+     * 请求成功
+     */
     public static <T> Result<T> success(T data) {
         return success(ResponseStatusCodeEnum.RESULT_CODE_SUCCESS.getMsg(), data);
     }
